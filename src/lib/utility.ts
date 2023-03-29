@@ -9,3 +9,7 @@ export function randomNumber(upper: number, lower = 0): number {
 export function getRandomElement<T>(list: T[]): T {
   return list[Math.floor(randomNumber(list.length))]
 }
+
+export function round(value: number) {
+  return Math.round(value * 100) / 100
+}

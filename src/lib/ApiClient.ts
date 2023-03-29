@@ -15,7 +15,7 @@ function warp(value: number, lower: number, upper: number): number {
   value = Math.max(lower, value)
   value = Math.min(upper, value)
 
-  return value;
+  return value
 }
 
 let temperatureCelsius = 20
@@ -30,7 +30,7 @@ setInterval(() => {
 
 class ApiClient {
   async getWeatherData(): Promise<WeatherData> {
-    await wait(randomNumber(500, 3000))
+    await wait(randomNumber(500, 1000))
     
     return {
       type: getRandomElement(['SUN', 'SUN_CLOUDY', 'CLOUDY', 'RAIN', 'SNOW']),
