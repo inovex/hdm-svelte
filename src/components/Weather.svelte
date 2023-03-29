@@ -1,41 +1,20 @@
 <script lang='ts'>
-  import { onMount } from 'svelte'
-
-  import apiClient, { type WeatherData } from '../lib/ApiClient'
   import { round } from '../lib/utility'
 
-  let weatherData: WeatherData | undefined = undefined
-  onMount(fetchWeather)
-
-  async function fetchWeather() {
-    weatherData = await apiClient.getWeatherData()
-  }
+  import weatherStore from '../lib/weatherStore'
+  import WeatherType from './WeatherType.svelte'
+  
+  $: weatherData = $weatherStore[$weatherStore.length - 1]
 </script>
 
-{#if weatherData}
+{#if weatherData !== undefined}
   Temperature: {round(weatherData.temperatureCelsius)}°C<br>
   Humidity: {round(weatherData.humidityPercent)}%<br>
   Wind: {round(weatherData.windKmH)}km/h<br>
 
   <div>
-    {#if weatherData.type === 'SUN'}
-      ☀️
-    {:else if weatherData.type === 'SUN_CLOUDY'}
-      ⛅
-    {:else if weatherData.type === 'CLOUDY'}
-      ☁️
-    {:else if weatherData.type === 'RAIN'}
-      🌧️
-    {:else if weatherData.type === 'SNOW'}
-      🌨️
-    {/if}
+    <WeatherType weatherType={weatherData.type} />
   </div>
-
-  <button on:click={fetchWeather}>
-    Refresh
-  </button>
-{:else}
-  no weather data yet!
 {/if}
 
 <style>
@@ -44,14 +23,6 @@
     width: 30%;
     margin: 0 auto;
     font-size: 10rem;
-    margin-bottom: 1rem;
-  }
-
-  button {
-    font-size: 2rem;
-    padding: 1rem;
-    border: 10px solid #ccc;
-    background-color: #fff;
-    cursor: pointer;
+    margin-top: 1rem;
   }
 </style>
