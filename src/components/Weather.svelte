@@ -5,9 +5,11 @@
   import { round } from '../lib/utility'
 
   let weatherData: WeatherData | undefined = undefined
-  onMount(async () => {
+  onMount(fetchWeather)
+
+  async function fetchWeather() {
     weatherData = await apiClient.getWeatherData()
-  })
+  }
 </script>
 
 {#if weatherData}
@@ -28,6 +30,10 @@
       🌨️
     {/if}
   </div>
+
+  <button on:click={fetchWeather}>
+    Refresh
+  </button>
 {:else}
   no weather data yet!
 {/if}
@@ -38,5 +44,14 @@
     width: 30%;
     margin: 0 auto;
     font-size: 10rem;
+    margin-bottom: 1rem;
+  }
+
+  button {
+    font-size: 2rem;
+    padding: 1rem;
+    border: 10px solid #ccc;
+    background-color: #fff;
+    cursor: pointer;
   }
 </style>
