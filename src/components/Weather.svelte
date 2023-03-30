@@ -11,18 +11,18 @@
 
 {#if weatherData !== undefined}
   Temperature: 
-    {round(weatherData.temperatureCelsius)}°C 
-    <ChangeIndicator currentValue={weatherData?.temperatureCelsius} previousValue={previousWeatherData?.temperatureCelsius} />
+    {round(weatherData.temperatureCelsiusSmooth)}°C 
+    <ChangeIndicator currentValue={weatherData?.temperatureCelsiusSmooth} previousValue={previousWeatherData?.temperatureCelsiusSmooth} />
     <br>
   
   Humidity: 
-    {round(weatherData.humidityPercent)}%
-    <ChangeIndicator currentValue={weatherData?.humidityPercent} previousValue={previousWeatherData?.humidityPercent} />
+    {round(weatherData.humidityPercentSmooth)}%
+    <ChangeIndicator currentValue={weatherData?.humidityPercentSmooth} previousValue={previousWeatherData?.humidityPercentSmooth} />
     <br>
   
   Wind: 
-    {round(weatherData.windKmH)}km/h
-    <ChangeIndicator currentValue={weatherData?.windKmH} previousValue={previousWeatherData?.windKmH} />
+    {round(weatherData.windKmHSmooth)}km/h
+    <ChangeIndicator currentValue={weatherData?.windKmHSmooth} previousValue={previousWeatherData?.windKmHSmooth} />
     <br>
 
   <div>
