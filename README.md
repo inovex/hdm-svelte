@@ -3,8 +3,13 @@
 ## Setup
 
 * Make sure to have Node.js installed. You can download it here if necessary: https://nodejs.org/en/download
-* Execute `npm install` to install dependencies
-* Execute `npm start` to start the dev server
+* Execute the following commands to clone the repo, install the dependencies and start the dev server:
+  ````bash
+  git clone git@github.com:inovex/talk-hdm-svelte.git # clone the repo
+  cd talk-hdm-svelte
+  npm install # install external dependencies
+  npm start # start the dev server that serves the application locally
+  ````
 * Navigate to `http://localhost:5173/` in your browser
 
 ## Assignment
