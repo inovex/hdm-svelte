@@ -8,9 +8,9 @@
   git clone git@github.com:inovex/talk-hdm-svelte.git # clone the repo
   cd talk-hdm-svelte
   npm install # install external dependencies
-  npm start # start the dev server that serves the application locally
+  npm run dev # start the dev server that serves the application locally
   ````
-* Navigate to `http://localhost:5173/` in your browser
+* Navigate to [localhost:5173](http://localhost:5173/) in your browser
 
 ## Assignment
 
